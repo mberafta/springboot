@@ -18,6 +18,9 @@ import hello.UserService;
 @SpringBootApplication
 public class Application  implements CommandLineRunner{
 
+    @Autowired
+    UserService service;
+
     @Bean
     InitializingBean saveData(UserRepository repo){
         return () -> {
@@ -29,8 +32,7 @@ public class Application  implements CommandLineRunner{
         };
     }
 
-    @Autowired
-    UserService service;
+
 
     public static void main(String[] args) {
         //SpringApplication.run(Application.class, args);
@@ -44,7 +46,7 @@ public class Application  implements CommandLineRunner{
     public void run(String... arg0) throws Exception{
         try{
             service.insertData();
-            service.findAll();
+            //service.findAll();
         }
         catch(Exception e){
             
