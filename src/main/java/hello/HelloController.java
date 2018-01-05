@@ -2,18 +2,32 @@ package hello;
 
 import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+import java.util.Arrays;
+
+@Controller
 public class HelloController {
 
+    @Autowired
+    UserRepository repo;
+
     @RequestMapping("/")
-    public JsonResponse index() {
-        String message = "Hello world!";
-        JsonResponse response = new JsonResponse();
-        response.Id = UUID.randomUUID();
-        response.Message = message;
-        return response;
+    public String index(Model model) {
+        model.addAttribute("UserEntity", repo.findAll());
+        return "index";
+    }
+
+    @RequestMapping(value="/users", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    public @ResponseBody List<UserEntity> getUsers(){
+        return repo.findAll();
     }
 
 }
