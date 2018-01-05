@@ -4,17 +4,26 @@
 <head>
     <meta charset="utf-8"></meta>
     <meta http-equiv="Content-Type" content="text/html"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cosmo/bootstrap.min.css" />
 </head>
 
-<body style="padding:10px;">
-    <h1>Java is GOOD</h1>
-    <div style="margin-left:auto; margin-right:auto; padding:10px;">
-        <ul>
-            <li th:each="entry, status : ${UserEntity}">
-                <p th:text="${entry.username}">username</p>
-                <p th:text="${entry.shortCreated}">username</p>
-            </li>
-        </ul>
+<body>
+    <div class="jumbotron">
+        <h1 class="text-center">
+            MB SPRINGBOOT
+        </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 mx-auto text-center">
+                <ul class="list-group">
+                    <li th:each="entry, status : ${UserEntity}" class="list-group-item">
+                        <p th:text="${entry.username}">username</p>
+                        <p th:text="${entry.shortCreated}">username</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 
