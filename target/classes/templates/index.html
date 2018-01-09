@@ -4,22 +4,23 @@
 <head>
     <meta charset="utf-8"></meta>
     <meta http-equiv="Content-Type" content="text/html"></meta>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cosmo/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/cerulean/bootstrap.min.css" />
 </head>
 
 <body>
     <div class="jumbotron">
         <h1 class="text-center">
-            MB SPRINGBOOT
+            HELLO WORLD
         </h1>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6 mx-auto text-center">
                 <ul class="list-group">
-                    <li th:each="entry, status : ${UserEntity}" class="list-group-item">
+                    <li th:each="entry, status : ${UserEntity}" class="list-group-item list-group-item-success">
                         <p th:text="${entry.username}">username</p>
                         <p th:text="${entry.shortCreated}">username</p>
+                        <p th:text="${entry.role}">username</p>
                     </li>
                 </ul>
             </div>

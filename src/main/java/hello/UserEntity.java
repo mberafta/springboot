@@ -17,6 +17,8 @@ public class UserEntity{
 
     private String Username;
 
+    private String Role;
+
     private Date Created;
 
     @Transient // => Propriété non persistente
@@ -26,8 +28,9 @@ public class UserEntity{
         setCreated(new Date());
     }
 
-    public UserEntity(String username){
+    public UserEntity(String username, String role){
         this.Username = username;
+        this.Role = role;
         setCreated(new Date());
     }
 
@@ -43,12 +46,20 @@ public class UserEntity{
         return Created;
     }
 
+    public String getRole(){
+        return Role;
+    }
+
     public void setUsername(String username){
         this.Username = username;
     }
 
     public void setCreated(Date date){
         this.Created = date;
+    }
+
+    public void setRole(String role){
+        this.Role = role;
     }
 
     public String getShortCreated(){

@@ -23,16 +23,12 @@ public class Application  implements CommandLineRunner{
 
     @Bean
     InitializingBean saveData(UserRepository repo){
+        service.insertData();
+
         return () -> {
-            repo.save(new UserEntity("Jose"));
-            repo.save(new UserEntity("Jose 2"));
-            repo.save(new UserEntity("Jose 3"));
-            repo.save(new UserEntity("Jose 4"));
-            repo.save(new UserEntity("Jose 5"));
+           service.findAll().forEach(entry -> repo.save(entry));
         };
     }
-
-
 
     public static void main(String[] args) {
         //SpringApplication.run(Application.class, args);
@@ -45,8 +41,7 @@ public class Application  implements CommandLineRunner{
     @Override
     public void run(String... arg0) throws Exception{
         try{
-            service.insertData();
-            //service.findAll();
+           
         }
         catch(Exception e){
             
