@@ -20,7 +20,7 @@
                     <li th:each="entry, status : ${UserEntity}" class="list-group-item list-group-item-success">
                         <p th:text="${entry.username}">username</p>
                         <p th:text="${entry.shortCreated}">username</p>
-                        <p th:text="${entry.role}">username</p>
+                        <p th:text="${entry.role}" class="text-danger">username</p>
                     </li>
                 </ul>
             </div>
